@@ -137,12 +137,14 @@ app.post("/messages/:roomId", (req, res) => {
 app.use(express.static(__dirname + "/dist"));
 
 app.get("*", (req, res) => {
-    res.sendFile(__dirname + "../dist/index.html");
+    const fileParts = __dirname.split("\\");
+    fileParts.pop();
+    fileParts.pop();
+    const previousFolder = fileParts.join("/");
+    res.sendFile(previousFolder + "/chatroom-front/dist/index.html");
 });
 
 
 app.listen(port, () => {
     console.log(`Aplicación incializada y escuchando en el puerto ${port}`);
-    console.log(__dirname + "../dist/index.html");
-
 });
