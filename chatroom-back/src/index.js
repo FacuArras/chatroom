@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const db_1 = require("./db");
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 const nanoid_1 = require("nanoid");
 const port = process.env.PORT || 3000;
 const app = express();
@@ -130,13 +131,13 @@ app.post("/messages/:roomId", (req, res) => {
         });
     });
 });
-app.use(express.static(__dirname + "/dist"));
+const fileParts = __dirname.split("\\");
+fileParts.pop();
+fileParts.pop();
+const previousFolder = fileParts.join("/");
+app.use(express.static(path.join(previousFolder, "/chatroom-front/dist")));
 app.get("*", (req, res) => {
-    const fileParts = __dirname.split("\\");
-    fileParts.pop();
-    fileParts.pop();
-    const previousFolder = fileParts.join("/");
-    res.sendFile(previousFolder + "/chatroom-front/dist/index.html");
+    res.sendFile(path.join(previousFolder, "/chatroom-front/dist/index.html"));
 });
 app.listen(port, () => {
     console.log(`Aplicación incializada y escuchando en el puerto ${port}`);

@@ -1,6 +1,7 @@
 import { rtdb, firestore } from "./db";
 import * as express from "express";
 import * as cors from "cors";
+import * as path from "path";
 import { nanoid } from "nanoid";
 
 const port = process.env.PORT || 3000;
@@ -134,14 +135,15 @@ app.post("/messages/:roomId", (req, res) => {
     });
 });
 
-app.use(express.static(__dirname + "/dist"));
+const fileParts = __dirname.split("\\");
+fileParts.pop();
+fileParts.pop();
+const previousFolder = fileParts.join("/");
+
+app.use(express.static(path.join(previousFolder, "/chatroom-front/dist")));
 
 app.get("*", (req, res) => {
-    const fileParts = __dirname.split("\\");
-    fileParts.pop();
-    fileParts.pop();
-    const previousFolder = fileParts.join("/");
-    res.sendFile(previousFolder + "/chatroom-front/dist/index.html");
+    res.sendFile(path.join(previousFolder, "/chatroom-front/dist/index.html"));
 });
 
 
