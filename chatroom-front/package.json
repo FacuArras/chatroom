@@ -1,0 +1,20 @@
+{
+  "name": "c5-front",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "dev": "parcel serve ./src/index.html",
+    "build": "parcel build ./src/index.html"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "@vaadin/router": "^1.7.4",
+    "firebase": "^9.17.1"
+  }
+}
