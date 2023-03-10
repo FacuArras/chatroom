@@ -13,11 +13,12 @@
     "process": "^0.11.10"
   },
   "dependencies": {
+    "@vaadin/router": "^1.7.4",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "@vaadin/router": "^1.7.4",
     "firebase": "^9.17.1",
     "firebase-admin": "^11.5.0",
-    "nanoid": "^3.0.0"
+    "nanoid": "^3.0.0",
+    "typescript": "^4.9.5"
   }
 }
