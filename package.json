@@ -4,8 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel serve ./src/index.html",
-    "build": "parcel build ./src/index.html"
+    "dev": "parcel serve ./chatroom-back/src/index.html",
+    "build": "tsc ./chatroom-back/src/index.ts",
+    "start": "node ./chatroom-back/src/index.js"
   },
   "devDependencies": {
     "parcel": "^2.8.3",
