@@ -112,8 +112,6 @@ const state = {
                 method: "post",
                 headers: {
                     "content-type": "application/json",
-                    "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Credentials": true
                 },
                 body: JSON.stringify({ email: currentState.email, password: currentState.password })
             }).then(res => {
@@ -148,6 +146,7 @@ const state = {
                     name: currentState.name
                 })
             }).then(res => {
+                console.log(res);
                 return res.json();
             }).then(data => {
                 currentState.userId = data.id;
