@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "module": "CommonJS",
+    "target": "ES2017",
     "moduleResolution": "node",
     "resolveJsonModule": true
-  }
+  },
+  "files": ["./chatroom-back/src/index.ts"]
 }
