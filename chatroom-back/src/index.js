@@ -141,4 +141,5 @@ app.get("*", (req, res) => {
 });
 app.listen(port, () => {
     console.log(`Aplicación incializada y escuchando en el puerto ${port}`);
+    console.log(process.env.PORT);
 });

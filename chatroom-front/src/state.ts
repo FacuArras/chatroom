@@ -111,7 +111,9 @@ const state = {
             fetch(API_BASE_URL + "/login", {
                 method: "post",
                 headers: {
-                    "content-type": "application/json"
+                    "content-type": "application/json",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Credentials": "true"
                 },
                 body: JSON.stringify({ email: currentState.email, password: currentState.password })
             }).then(res => {
