@@ -1,6 +1,6 @@
 import { rtdb } from "./rtdb";
 import { ref, onValue } from "firebase/database";
-const API_BASE_URL = "http://127.0.0.1:3000";
+const API_BASE_URL = process.env.PORT || "http://127.0.0.1:3000";
 const state = {
     data: {
         name: "",
@@ -187,18 +187,18 @@ const state = {
         if (currentState.userId) {
             fetch(API_BASE_URL + "/rooms/" + currentState.roomId + "?userId=" + currentState.userId)
                 .then(res => {
-                return res.json();
-            }).then(data => {
-                currentState.realTimeDataBaseId = data.realTimeDataBaseId;
-                currentState.messages = [];
-                sessionStorage.removeItem("messages");
-                this.setState(currentState);
-                sessionStorage.setItem("realTimeDataBaseId", currentState.realTimeDataBaseId);
-                if (callback) {
-                    callback();
-                }
-                ;
-            });
+                    return res.json();
+                }).then(data => {
+                    currentState.realTimeDataBaseId = data.realTimeDataBaseId;
+                    currentState.messages = [];
+                    sessionStorage.removeItem("messages");
+                    this.setState(currentState);
+                    sessionStorage.setItem("realTimeDataBaseId", currentState.realTimeDataBaseId);
+                    if (callback) {
+                        callback();
+                    }
+                    ;
+                });
         }
         else {
             console.error("Fijate que por ahí escribiste mal la id de la room.");

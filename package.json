@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel serve ./chatroom-back/src/index.html",
+    "dev": "parcel serve ./chatroom-front/src/index.html",
     "build:front": "parcel build ./chatroom-front/src/index.html",
     "build:back": "tsc",
     "build": "yarn build:front && yarn build:back",
