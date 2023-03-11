@@ -146,9 +146,9 @@ const state = {
                     name: currentState.name
                 })
             }).then(res => {
-                console.log(res);
                 return res.json();
             }).then(data => {
+                console.log(data);
                 currentState.userId = data.id;
                 sessionStorage.setItem("userId", currentState.userId);
                 this.setState(currentState);
