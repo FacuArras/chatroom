@@ -117,8 +117,10 @@ const state = {
             }).then(res => {
                 console.log(process.env.PORT);
                 console.log(typeof res);
+                console.log(res);
                 return res.json();
             }).then(data => {
+                console.log(data);
                 currentState.userId = data.id;
                 currentState.name = data.name;
                 this.setState(currentState);
