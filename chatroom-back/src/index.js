@@ -7,6 +7,7 @@ const path = require("path");
 const nanoid_1 = require("nanoid");
 const port = process.env.PORT || 3000;
 const app = express();
+console.log(port);
 app.use(express.json());
 app.use(cors());
 const usersCollectionRef = db_1.firestore.collection("users");

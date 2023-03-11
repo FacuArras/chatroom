@@ -6,6 +6,8 @@ import { nanoid } from "nanoid";
 
 const port = process.env.PORT || 3000;
 const app = express();
+console.log(port);
+
 
 app.use(express.json());
 app.use(cors());

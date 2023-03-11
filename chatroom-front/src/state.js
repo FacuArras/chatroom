@@ -106,6 +106,8 @@ const state = {
                 },
                 body: JSON.stringify({ email: currentState.email, password: currentState.password })
             }).then(res => {
+                console.log(process.env.PORT);
+                console.log(typeof res);
                 return res.json();
             }).then(data => {
                 currentState.userId = data.id;
