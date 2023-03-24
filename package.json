@@ -1,8 +1,7 @@
 {
-  "name": "c5-back",
+  "name": "chatroom",
   "type": "commonjs",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "scripts": {
     "dev:back": "nodemon --watch ./chatroom-back/src/index.ts",

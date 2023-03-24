@@ -1,6 +1,6 @@
 import { rtdb } from "./rtdb";
 import { ref, onValue } from "firebase/database";
-const API_BASE_URL = process.env.PORT || "http://127.0.0.1:3000";
+const API_BASE_URL = "https://xhatroom-api.onrender.com" || "http://127.0.0.1:3000";
 const state = {
     data: {
         name: "",

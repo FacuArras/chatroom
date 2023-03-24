@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     "module": "CommonJS",
-    "target": "ES2017",
+    "target": "ESNext",
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
   },
   "files": ["./chatroom-back/src/index.ts"]
 }
