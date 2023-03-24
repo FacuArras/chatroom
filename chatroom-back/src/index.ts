@@ -1,6 +1,7 @@
 import { rtdb, firestore } from "./db";
 import * as express from "express";
 import * as cors from "cors";
+import * as process from "process";
 import * as path from "path";
 import { nanoid } from "nanoid";
 
@@ -9,8 +10,8 @@ const app = express();
 console.log(port);
 
 
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 const usersCollectionRef = firestore.collection("users");
 const roomsCollectionRef = firestore.collection("rooms");

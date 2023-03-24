@@ -5,7 +5,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel serve ./chatroom-front/src/index.html",
+    "dev:back": "nodemon --watch ./chatroom-back/src/index.ts",
+    "dev:front": "parcel serve ./chatroom-front/src/index.html",
     "build:front": "parcel build ./chatroom-front/src/index.html",
     "build:back": "tsc",
     "build": "yarn build:front && yarn build:back",
@@ -17,12 +18,14 @@
   },
   "dependencies": {
     "@vaadin/router": "^1.7.4",
+    "concurrently": "^7.6.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "firebase": "^9.17.1",
     "firebase-admin": "^11.5.0",
     "nanoid": "^3.0.0",
+    "nodemon": "^2.0.22",
     "typescript": "^4.9.5"
   }
 }

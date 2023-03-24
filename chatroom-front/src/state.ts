@@ -1,6 +1,6 @@
 import { rtdb } from "./rtdb";
 import { ref, onValue, get } from "firebase/database";
-const API_BASE_URL = process.env.PORT || "http://127.0.0.1:1234";
+const API_BASE_URL = "https://xhatroom-api.onrender.com" || "http://127.0.0.1:3000";
 
 const state = {
     data: {
@@ -29,7 +29,6 @@ const state = {
             currentState.roomId = sessionStorage.getItem("roomId");
             currentState.userId = sessionStorage.getItem("userId");
             currentState.username = sessionStorage.getItem("username");
-            currentState.messages = JSON.parse(sessionStorage.getItem("messages"));
             this.setState(currentState);
         }
     },

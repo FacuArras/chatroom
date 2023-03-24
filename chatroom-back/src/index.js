@@ -3,13 +3,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const db_1 = require("./db");
 const express = require("express");
 const cors = require("cors");
+const process = require("process");
 const path = require("path");
 const nanoid_1 = require("nanoid");
 const port = process.env.PORT || 3000;
 const app = express();
 console.log(port);
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 const usersCollectionRef = db_1.firestore.collection("users");
 const roomsCollectionRef = db_1.firestore.collection("rooms");
 app.post('/signup', function (req, res) {
