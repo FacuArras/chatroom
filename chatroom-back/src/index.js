@@ -8,8 +8,9 @@ const path = require("path");
 const nanoid_1 = require("nanoid");
 const port = process.env.PORT || 3000;
 const app = express();
-app.use(express.json());
+console.log(port);
 app.use(cors());
+app.use(express.json());
 const usersCollectionRef = db_1.firestore.collection("users");
 const roomsCollectionRef = db_1.firestore.collection("rooms");
 app.post('/signup', function (req, res) {
@@ -132,10 +133,15 @@ app.post("/messages/:roomId", (req, res) => {
         });
     });
 });
-app.use(express.static(path.join(__dirname, "../chatroom-front/dist")));
+const fileParts = __dirname.split("\\");
+fileParts.pop();
+fileParts.pop();
+const previousFolder = fileParts.join("/");
+app.use(express.static(path.join(previousFolder, "/chatroom-front/dist")));
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../chatroom-front/dist/index.html"));
+    res.sendFile(path.join(previousFolder, "/chatroom-front/dist/index.html"));
 });
+console.log(path.join(previousFolder, "/chatroom-front/dist/index.html"));
 app.listen(port, () => {
     console.log(`Aplicación incializada y escuchando en el puerto ${port}`);
 });

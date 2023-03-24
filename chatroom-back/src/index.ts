@@ -7,9 +7,11 @@ import { nanoid } from "nanoid";
 
 const port = process.env.PORT || 3000;
 const app = express();
+console.log(port);
 
-app.use(express.json());
+
 app.use(cors());
+app.use(express.json());
 
 const usersCollectionRef = firestore.collection("users");
 const roomsCollectionRef = firestore.collection("rooms");
@@ -136,12 +138,19 @@ app.post("/messages/:roomId", (req, res) => {
     });
 });
 
+const fileParts = __dirname.split("\\");
+fileParts.pop();
+fileParts.pop();
+const previousFolder = fileParts.join("/");
 
-app.use(express.static(path.join(__dirname, "../chatroom-front/dist")));
+app.use(express.static(path.join(previousFolder, "/chatroom-front/dist")));
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../chatroom-front/dist/index.html"));
+    res.sendFile(path.join(previousFolder, "/chatroom-front/dist/index.html"));
 });
+
+console.log(path.join(previousFolder, "/chatroom-front/dist/index.html"));
+
 
 
 app.listen(port, () => {
